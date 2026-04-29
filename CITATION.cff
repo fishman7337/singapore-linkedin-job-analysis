@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it using the metadata below."
+title: "Singapore LinkedIn Job Market Analytics"
+authors:
+  - family-names: "Goh"
+    given-names: "Kun Ming"
+date-released: "2026-04-28"
+version: "0.1.0"
+repository-code: "https://github.com/fishman7337/singapore-linkedin-job-analysis"
+abstract: "An exploratory DataOps-ready analysis of Singapore LinkedIn job postings for ST1510 Programming for Data Analytics CA1."
