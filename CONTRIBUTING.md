@@ -18,6 +18,8 @@ Run these before opening a pull request:
 ```powershell
 ruff check src tests scripts
 pytest
+bandit -r src scripts -c pyproject.toml
+pip-audit -r requirements-audit.txt
 ```
 
 ## Contribution Guidelines

@@ -97,9 +97,11 @@ Run the local quality gate before committing:
 ```powershell
 ruff check src tests scripts
 pytest
+bandit -r src scripts -c pyproject.toml
+pip-audit -r requirements-audit.txt
 ```
 
-GitHub Actions runs the same checks on push and pull request events.
+GitHub Actions runs quality and security checks on push and pull request events.
 
 ## Documentation
 

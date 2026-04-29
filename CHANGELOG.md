@@ -4,6 +4,8 @@ All notable changes to this project are documented here.
 
 ## 0.1.0 - 2026-04-29
 
+- Added CI security checks with Bandit and pip-audit.
+- Added Dependabot configuration for Python and GitHub Actions dependency updates.
 - Retained an exact original submitted notebook under `notebooks/original/`.
 - Added generated section notebooks under `notebooks/sections/`.
 - Added notebook section coverage tests to verify the split notebooks reconstruct the original notebook cells.

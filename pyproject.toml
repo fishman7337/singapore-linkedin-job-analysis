@@ -18,6 +18,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+    "bandit[toml]>=1.7",
+    "pip-audit>=2.7",
     "pytest>=8.0",
     "ruff>=0.5",
 ]
@@ -39,3 +41,7 @@ src = ["src", "tests", "scripts"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = []

@@ -31,6 +31,8 @@ This project uses lightweight DataOps practices appropriate for an academic anal
 | --- | --- | --- |
 | Static lint | `ruff check src tests scripts` | Detect import, style, and common Python issues |
 | Unit tests | `pytest` | Validate cleaning, feature engineering, and output writing |
+| Static security scan | `bandit -r src scripts -c pyproject.toml` | Detect common Python security issues |
+| Dependency audit | `pip-audit -r requirements-audit.txt` | Check project dependencies for known vulnerabilities |
 | Schema validation | `sg_linkedin_jobs.validation` | Check required raw and processed columns |
 | Data policy | `.gitignore` | Prevent accidental raw-data commits |
 

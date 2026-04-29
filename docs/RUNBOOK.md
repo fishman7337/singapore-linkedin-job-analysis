@@ -38,6 +38,8 @@ python -m sg_linkedin_jobs.cli --raw-dir data/raw --output data/processed/linked
 ```powershell
 ruff check src tests scripts
 pytest
+bandit -r src scripts -c pyproject.toml
+pip-audit -r requirements-audit.txt
 ```
 
 ## Open the Notebook
