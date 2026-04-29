@@ -29,7 +29,7 @@ What factors make job postings more visible and increase application rates, and 
 │   ├── raw/                  # Local-only source files, see data/README.md
 │   └── processed/            # Local-only generated datasets
 ├── docs/                     # DataOps, data dictionary, ethics, runbook, charter
-├── notebooks/                # Original CA1 analysis notebook
+├── notebooks/                # Original, cleaned full, and section notebooks
 ├── reports/slides/           # Original CA1 presentation deck
 ├── src/sg_linkedin_jobs/     # Reusable data loading, cleaning, feature code
 └── tests/                    # Pytest coverage for reusable logic
@@ -95,7 +95,7 @@ The reusable pipeline performs the main preparation steps from the notebook:
 Run the local quality gate before committing:
 
 ```powershell
-ruff check src tests
+ruff check src tests scripts
 pytest
 ```
 
@@ -109,6 +109,7 @@ GitHub Actions runs the same checks on push and pull request events.
 - [Ethics and privacy](docs/ETHICS.md)
 - [Operational runbook](docs/RUNBOOK.md)
 - [Project charter](docs/PROJECT_CHARTER.md)
+- [Notebook guide](docs/NOTEBOOK_GUIDE.md)
 - [Contributing guide](CONTRIBUTING.md)
 
 ## License

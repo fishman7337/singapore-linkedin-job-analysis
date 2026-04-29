@@ -29,7 +29,7 @@ This project uses lightweight DataOps practices appropriate for an academic anal
 
 | Gate | Tool | Purpose |
 | --- | --- | --- |
-| Static lint | `ruff check src tests` | Detect import, style, and common Python issues |
+| Static lint | `ruff check src tests scripts` | Detect import, style, and common Python issues |
 | Unit tests | `pytest` | Validate cleaning, feature engineering, and output writing |
 | Schema validation | `sg_linkedin_jobs.validation` | Check required raw and processed columns |
 | Data policy | `.gitignore` | Prevent accidental raw-data commits |

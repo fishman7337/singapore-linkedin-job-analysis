@@ -1,0 +1,56 @@
+{
+  "source_notebook": "notebooks/original/CA1 (1).ipynb",
+  "generated_by": "scripts/split_notebook.py",
+  "original_cell_count": 234,
+  "original_cells_sha256": "afff506e74675fe474ccef6270d936de4b924beb6edf371e127eec1eff69252a",
+  "sections": [
+    {
+      "file": "00_cover_and_table_of_contents.ipynb",
+      "title": "Cover and Table of Contents",
+      "first_cell": 1,
+      "last_cell": 2,
+      "cell_count": 2,
+      "cells_sha256": "dcd1958e5410a7da2bb5d0df134bf561d5da83d2eb39b2938f730be55b5e8b2f"
+    },
+    {
+      "file": "01_introduction_and_research_context.ipynb",
+      "title": "1. Introduction and Research Context",
+      "first_cell": 3,
+      "last_cell": 10,
+      "cell_count": 8,
+      "cells_sha256": "f2d7bdbb76f54e9315a7d0e7d68ab48e65b837cf33d1b0323aea2c03702a16f0"
+    },
+    {
+      "file": "02_data_preparation_and_cleaning.ipynb",
+      "title": "2. Data Preparation and Cleaning",
+      "first_cell": 11,
+      "last_cell": 192,
+      "cell_count": 182,
+      "cells_sha256": "1f2c813164c48516db46ca5fac766fa6eacc13051937d2a290816575f2d3e55c"
+    },
+    {
+      "file": "03_data_analysis_and_visualisation.ipynb",
+      "title": "3. Data Analysis and Visualisation",
+      "first_cell": 193,
+      "last_cell": 230,
+      "cell_count": 38,
+      "cells_sha256": "77c135f97cd1d881b1e0bdf2a82e3d5b97a7650395ab7af8ae3c81212927d42b"
+    },
+    {
+      "file": "04_answering_research_question.ipynb",
+      "title": "4. Answering of Research Question",
+      "first_cell": 231,
+      "last_cell": 232,
+      "cell_count": 2,
+      "cells_sha256": "3a9e3452568a24471324671e61ab3695a23e4ec059f72a6adbdda573284b3638"
+    },
+    {
+      "file": "05_references.ipynb",
+      "title": "5. References",
+      "first_cell": 233,
+      "last_cell": 234,
+      "cell_count": 2,
+      "cells_sha256": "2d6dd795bd586c2059ca133180f2d76ae30a91fabc4a722fd63a4c30c838aa9d"
+    }
+  ]
+}

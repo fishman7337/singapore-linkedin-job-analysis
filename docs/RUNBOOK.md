@@ -36,7 +36,7 @@ python -m sg_linkedin_jobs.cli --raw-dir data/raw --output data/processed/linked
 ## Run Checks
 
 ```powershell
-ruff check src tests
+ruff check src tests scripts
 pytest
 ```
 

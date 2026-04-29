@@ -8,7 +8,7 @@ The repository separates exploratory analysis from reusable data-preparation cod
 | --- | --- | --- |
 | Raw data | `data/raw/` | Local-only source files |
 | Processed data | `data/processed/` | Local-only generated outputs |
-| Notebook | `notebooks/` | Narrative EDA and visualisations |
+| Notebooks | `notebooks/` | Original, cleaned full, and section-level EDA notebooks |
 | Package | `src/sg_linkedin_jobs/` | Reusable loading, cleaning, feature, validation, and CLI code |
 | Tests | `tests/` | Synthetic-data validation for reusable logic |
 | CI | `.github/workflows/ci.yml` | Automated linting and tests |
