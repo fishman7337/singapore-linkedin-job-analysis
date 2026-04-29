@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented here.
 
-## 0.1.0 - 2026-04-28
+## 0.1.0 - 2026-04-29
 
 - Renamed and documented the project as Singapore LinkedIn Job Market Analytics.
 - Added a maintainable Python package for data loading, cleaning, feature engineering, validation, and CLI execution.
