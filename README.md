@@ -4,6 +4,15 @@ Singapore LinkedIn Job Market Analytics is a DataOps-ready exploratory data anal
 
 This repository preserves the original ST1510 CA1 notebook and presentation while adding a maintainable Python package, tests, documentation, and CI for future reuse.
 
+## Evidence and interpretation
+
+| Evidence-backed measure | Current repository evidence |
+| --- | --- |
+| Automated checks | **9 tests** cover cleaning, feature engineering, notebook sections, and the reusable pipeline. |
+| Analysed dimensions | Salary, work arrangement, seniority, posting duration, views, applications, annualised salary, and apply-to-view ratio. |
+
+The qualitative outcome is a reproducible exploratory analysis of Singapore LinkedIn job listings. The repository does not implement skills extraction or demonstrate workforce-policy adoption, so those outcomes are not claimed.
+
 ## Academic Context
 
 | Field | Details |

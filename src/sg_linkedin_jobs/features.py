@@ -20,7 +20,6 @@ OUTLIER_COLUMNS = ["min_salary_normalised", "max_salary_normalised", "salary_ran
 
 def add_analysis_features(df: pd.DataFrame) -> pd.DataFrame:
     """Add derived salary, duration, and engagement metrics."""
-
     featured = add_salary_features(df)
     featured = add_temporal_features(featured)
     return add_engagement_features(featured)
@@ -28,15 +27,14 @@ def add_analysis_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def add_salary_features(df: pd.DataFrame) -> pd.DataFrame:
     """Annualise salary fields and calculate salary range."""
-
     featured = df.copy()
     multiplier = featured["pay_period"].map(PAY_PERIOD_MULTIPLIERS).fillna(1)
-    featured["max_salary_normalised"] = pd.to_numeric(
-        featured["max_salary"], errors="coerce"
-    ).fillna(0) * multiplier
-    featured["min_salary_normalised"] = pd.to_numeric(
-        featured["min_salary"], errors="coerce"
-    ).fillna(0) * multiplier
+    featured["max_salary_normalised"] = (
+        pd.to_numeric(featured["max_salary"], errors="coerce").fillna(0) * multiplier
+    )
+    featured["min_salary_normalised"] = (
+        pd.to_numeric(featured["min_salary"], errors="coerce").fillna(0) * multiplier
+    )
     featured["salary_range"] = (
         featured["max_salary_normalised"] - featured["min_salary_normalised"]
     ).clip(lower=0)
@@ -45,7 +43,6 @@ def add_salary_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate posting duration in days."""
-
     featured = df.copy()
     featured["postingDuration"] = (featured["expiry"] - featured["listed_time"]).dt.days
     featured["postingDuration"] = featured["postingDuration"].fillna(0).astype("int64")
@@ -54,7 +51,6 @@ def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def add_engagement_features(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate application conversion while avoiding division by zero."""
-
     featured = df.copy()
     views = pd.to_numeric(featured["views"], errors="coerce").replace(0, np.nan)
     applies = pd.to_numeric(featured["applies"], errors="coerce").fillna(0)
@@ -68,7 +64,6 @@ def remove_outliers_iqr(
     multiplier: float = 1.5,
 ) -> pd.DataFrame:
     """Remove outliers column-by-column using the interquartile range method."""
-
     filtered = df.copy()
 
     for column in columns:
@@ -95,7 +90,6 @@ def remove_outliers_zscore(
     threshold: float = 3.0,
 ) -> pd.DataFrame:
     """Remove outliers column-by-column using z-scores."""
-
     filtered = df.copy()
 
     for column in columns:

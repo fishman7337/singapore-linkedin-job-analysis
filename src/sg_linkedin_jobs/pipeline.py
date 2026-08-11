@@ -18,7 +18,6 @@ def build_analysis_dataset(
     remove_outliers: bool = True,
 ) -> pd.DataFrame:
     """Load raw tables and return the processed analysis dataset."""
-
     raw_tables = load_raw_tables(raw_dir)
     cleaned = clean_job_postings(raw_tables)
     featured = add_analysis_features(cleaned)
@@ -32,7 +31,6 @@ def write_processed_dataset(
     output_path: str | Path = DEFAULT_PROCESSED_FILE,
 ) -> Path:
     """Write the processed dataset to CSV and return the output path."""
-
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=True)

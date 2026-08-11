@@ -26,7 +26,6 @@ def load_raw_tables(
         Optional mapping of logical table names to filenames. Defaults to the
         coursework filenames documented in ``data/README.md``.
     """
-
     raw_path = Path(raw_dir)
     files = dict(table_files or RAW_TABLE_FILES)
     missing = [
@@ -45,7 +44,6 @@ def load_raw_tables(
 
 def read_table(path: str | Path) -> pd.DataFrame:
     """Read a CSV or Excel table from disk."""
-
     table_path = Path(path)
     suffix = table_path.suffix.lower()
 
