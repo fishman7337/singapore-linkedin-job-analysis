@@ -39,7 +39,6 @@ PAY_PERIOD_LABELS = {
 
 def clean_job_postings(raw_tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame:
     """Return a cleaned analysis table from the five raw assignment tables."""
-
     merged = merge_posting_tables(raw_tables)
     selected = select_analysis_columns(merged)
     imputed = impute_missing_values(selected)
@@ -50,7 +49,6 @@ def clean_job_postings(raw_tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame:
 
 def merge_posting_tables(raw_tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame:
     """Merge the five raw posting tables on ``job_id`` using inner joins."""
-
     validate_raw_tables(raw_tables)
     merged = (
         raw_tables["postings_core"]
@@ -64,14 +62,12 @@ def merge_posting_tables(raw_tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame
 
 def select_analysis_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Remove columns that do not support the research question."""
-
     selected = df.drop(columns=IRRELEVANT_COLUMNS, errors="ignore").copy()
     return selected.rename(columns={"company_name_x": "company_name", "title_x": "title"})
 
 
 def impute_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     """Fill missing values using the rules from the original notebook."""
-
     imputed = df.copy()
 
     if "company_name" in imputed:
@@ -96,7 +92,6 @@ def impute_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
 def interpolate_salary_by_group(df: pd.DataFrame, column: str) -> pd.DataFrame:
     """Interpolate salary values within pay-period and seniority groups."""
-
     group_columns = ["pay_period", "formatted_experience_level"]
     if column not in df or any(group_column not in df for group_column in group_columns):
         return df
@@ -111,17 +106,13 @@ def interpolate_salary_by_group(df: pd.DataFrame, column: str) -> pd.DataFrame:
 
 def coerce_analysis_types(df: pd.DataFrame) -> pd.DataFrame:
     """Convert known analysis columns to stable numeric and datetime dtypes."""
-
     typed = df.copy()
     integer_columns = ["max_salary", "views", "min_salary", "applies", "remote_allowed"]
 
     for column in integer_columns:
         if column in typed:
             typed[column] = (
-                pd.to_numeric(typed[column], errors="coerce")
-                .fillna(0)
-                .round()
-                .astype("int64")
+                pd.to_numeric(typed[column], errors="coerce").fillna(0).round().astype("int64")
             )
 
     for column in ["expiry", "listed_time"]:
@@ -133,7 +124,6 @@ def coerce_analysis_types(df: pd.DataFrame) -> pd.DataFrame:
 
 def standardise_pay_period(df: pd.DataFrame) -> pd.DataFrame:
     """Use title-case pay-period labels for readable reporting."""
-
     standardised = df.copy()
     if "pay_period" in standardised:
         standardised["pay_period"] = standardised["pay_period"].replace(PAY_PERIOD_LABELS)

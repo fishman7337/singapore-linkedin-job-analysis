@@ -52,7 +52,6 @@ PROCESSED_REQUIRED_COLUMNS = {
 
 def require_columns(df: pd.DataFrame, required_columns: set[str], table_name: str) -> None:
     """Raise a clear error when expected columns are missing."""
-
     missing = sorted(required_columns.difference(df.columns))
     if missing:
         raise ValueError(f"{table_name} is missing required columns: {', '.join(missing)}")
@@ -60,7 +59,6 @@ def require_columns(df: pd.DataFrame, required_columns: set[str], table_name: st
 
 def validate_raw_tables(tables: Mapping[str, pd.DataFrame]) -> None:
     """Validate that all required raw tables and minimum columns are present."""
-
     missing_tables = sorted(set(RAW_REQUIRED_COLUMNS).difference(tables))
     if missing_tables:
         raise ValueError(f"Missing raw tables: {', '.join(missing_tables)}")
@@ -71,7 +69,6 @@ def validate_raw_tables(tables: Mapping[str, pd.DataFrame]) -> None:
 
 def validate_processed_schema(df: pd.DataFrame) -> None:
     """Validate the processed dataset used for analysis and visualisation."""
-
     require_columns(df, PROCESSED_REQUIRED_COLUMNS, "processed dataset")
 
     non_negative_columns = [

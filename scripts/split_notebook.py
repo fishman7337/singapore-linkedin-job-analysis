@@ -21,6 +21,8 @@ MANIFEST_PATH = OUTPUT_DIR / "notebook_manifest.json"
 
 @dataclass(frozen=True)
 class NotebookSection:
+    """Define an inclusive source-cell range for a generated notebook."""
+
     filename: str
     title: str
     first_cell: int
@@ -68,6 +70,7 @@ SECTIONS = [
 
 
 def main() -> int:
+    """Regenerate section notebooks and their integrity manifest."""
     source = read_notebook(SOURCE_NOTEBOOK)
     cells = source["cells"]
     validate_sections(SECTIONS, len(cells))
@@ -113,14 +116,37 @@ def main() -> int:
 
 
 def read_notebook(path: Path) -> dict[str, Any]:
+    """Load a notebook JSON document.
+
+    Args:
+        path: Notebook path.
+
+    Returns:
+        Parsed notebook mapping.
+    """
     return json.loads(path.read_text(encoding="utf-8"))
 
 
 def write_notebook(path: Path, notebook: dict[str, Any]) -> None:
+    """Write a notebook document with deterministic indentation.
+
+    Args:
+        path: Destination notebook path.
+        notebook: Notebook document to serialize.
+    """
     path.write_text(json.dumps(notebook, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def validate_sections(sections: list[NotebookSection], cell_count: int) -> None:
+    """Validate that section ranges cover every source cell exactly once.
+
+    Args:
+        sections: Ordered inclusive source-cell ranges.
+        cell_count: Number of cells in the source notebook.
+
+    Raises:
+        ValueError: If ranges contain a gap, overlap, invalid order, or incomplete coverage.
+    """
     expected_first_cell = 1
 
     for section in sections:
@@ -140,6 +166,7 @@ def validate_sections(sections: list[NotebookSection], cell_count: int) -> None:
 
 
 def checksum_json(value: Any) -> str:
+    """Calculate a stable SHA-256 digest for a JSON-compatible value."""
     encoded = json.dumps(value, ensure_ascii=False, sort_keys=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
